@@ -1,0 +1,1053 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Data Engineering Roadmap 2025</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2221c931-98d4-805a-99ce-e66b07ef7449" class="page sans"><header><h1 class="page-title">Data Engineering Roadmap 2025</h1><p class="page-description"></p></header><div class="page-body"><p id="2221c931-98d4-816c-b00a-ca4b7b8cdbc2" class="">This roadmap is a part of video on Darshil’s channel</p><p id="2221c931-98d4-811f-bea7-d904c7a67c44" class="">
+</p><p id="2221c931-98d4-811f-b00b-e3bb043814ce" class="">I suggest watching above to understand how to follow this roadmap, this is in-depth roadmap that list major tech stack you need to focus on.</p><p id="2221c931-98d4-819a-b4d6-de505709d7cb" class="">
+</p><p id="2221c931-98d4-810f-8805-e9361efc510a" class="">Use this roadmap as navigator to know where you stand and what you can focus on next!</p><h3 id="2221c931-98d4-81b4-844a-ead8b62ca71b" class="">Combo Package Python + SQL + Data warehouse (Snowflake) + Apache Spark + Airflow </h3><div id="2221c931-98d4-818a-9008-e38ca0dc4e31" class="column-list"><div id="2221c931-98d4-81a7-b1a5-cb62829a61b3" style="width:50%" class="column"><figure id="2221c931-98d4-81dc-8bf8-ec09518e09b1" class="image" style="text-align:left"><a href="Untitled.png"><img style="width:384px" src="Untitled.png"/></a></figure></div><div id="2221c931-98d4-81e1-9414-f17dd8687b9e" style="width:50%" class="column"><figure id="2221c931-98d4-81af-9893-f5d2b39a576f"><a href="https://datavidhya.com/combo-pack" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">DataVidhya</div><div class="bookmark-description">DataVidhya is your go-to resource for top-notch data engineering content.     Our platform offers a wealth of knowledge and insights, tailored for both      beginners and seasoned professionals. Dive into expertly crafted tutorials,      in-depth articles, and comprehensive guides that cover the latest trends and     technologies in data engineering. Whether you&#x27;re looking to enhance your     skills, stay updated with industry advancements, or explore new methodologies,     Data Vidhya provides the tools and information you need to succeed in     the ever-evolving field of data engineering. Join our community of data enthusiasts     and elevate your expertise with Data Vidhya.</div></div><div class="bookmark-href"><img src="https://datavidhya.com/logo.png" class="icon bookmark-icon"/>https://datavidhya.com/combo-pack</div></div></a></figure><p id="2221c931-98d4-81c6-bd9c-de52961046d5" class=""><strong>USE CODE: COMBO50 for 50% off</strong></p><p id="2221c931-98d4-8189-b09a-dce714598eaa" class="">
+</p><p id="2221c931-98d4-8151-9f42-e8cdd51fa56b" class="">
+</p></div></div><h3 id="2221c931-98d4-81a2-8a59-ee7725f35020" class="">1. Computer Science Fundamentals (If you don’t have a CS background)</h3><p id="2221c931-98d4-81a1-bcb3-f1a2745ef65f" class="">If you are just getting started and don’t have any understanding about computer science then start by watching this amazing video series by Harvard University CS50 on YouTube </p><p id="2221c931-98d4-81f5-927e-dfdd6bb71647" class="">
+</p><p id="2221c931-98d4-81f4-8547-dcf54e0fd230" class="">Watching first 5 videos are enough </p><p id="2221c931-98d4-8151-b7ca-fbace387351b" class=""><br/>a. <br/><strong>CS50 2023</strong></p><figure id="2221c931-98d4-81c4-be94-d09c76013f36"><a href="https://www.youtube.com/watch?v=IDDmrzzB14M&amp;list=PLhQjrBD2T380F_inVRXMIHCqLaNUd7bN4&amp;pp=iAQB" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">CS50x 2023 - Lecture 0 - Scratch</div><div class="bookmark-description">***
+
+This is CS50, Harvard University&#x27;s introduction to the intellectual enterprises of computer science and the art of programming.
+
+***
+
+TABLE OF CONTENTS
+
+00:00:00 - Introduction
+00:01:12 - This is CS50
+00:16:19 - Binary
+00:32:23 - Representation
+00:56:08 - Algorithms
+01:08:30 - Abstraction
+01:10:06 - Scratch
+01:16:13 - Hello, world
+01:27:19 - Text to speech
+01:28:57 - Loops
+01:32:07 - Custom blocks, Functions
+01:37:38 - Conditionals
+01:42:20 - Whack-a-mole
+01:45:01 - Oscartime
+02:00:17 - Ivy&#x27;s Hardest Game
+
+***
+
+HOW TO SUBSCRIBE
+
+http://www.youtube.com/subscription_center?add_user=cs50tv
+
+HOW TO TAKE CS50
+
+edX: https://cs50.edx.org/
+Harvard Extension School: https://cs50.harvard.edu/extension
+Harvard Summer School: https://cs50.harvard.edu/summer
+OpenCourseWare: https://cs50.harvard.edu/x
+
+HOW TO JOIN CS50 COMMUNITIES
+
+Discord: https://discord.gg/cs50
+Ed: https://cs50.harvard.edu/x/ed
+Facebook Group: https://www.facebook.com/groups/cs50/
+Faceboook Page: https://www.facebook.com/cs50/
+GitHub: https://github.com/cs50
+Gitter: https://gitter.im/cs50/x
+Instagram: https://instagram.com/cs50
+LinkedIn Group: https://www.linkedin.com/groups/7437240/
+LinkedIn Page: https://www.linkedin.com/school/cs50/
+Medium: https://cs50.medium.com/
+Quora: https://www.quora.com/topic/CS50
+Reddit: https://www.reddit.com/r/cs50/
+Slack: https://cs50.edx.org/slack
+Snapchat: https://www.snapchat.com/add/cs50
+SoundCloud: https://soundcloud.com/cs50
+Stack Exchange: https://cs50.stackexchange.com/
+TikTok: https://www.tiktok.com/@cs50
+Twitter: https://twitter.com/cs50
+YouTube: http://www.youtube.com/cs50
+
+HOW TO FOLLOW DAVID J. MALAN
+
+Facebook: https://www.facebook.com/dmalan
+GitHub: https://github.com/dmalan
+Instagram: https://www.instagram.com/davidjmalan/
+LinkedIn: https://www.linkedin.com/in/malan/
+Quora: https://www.quora.com/profile/David-J-Malan
+TikTok: https://www.tiktok.com/@davidjmalan
+Twitter: https://twitter.com/davidjmalan
+
+***
+
+CS50 SHOP
+
+https://cs50.harvardshop.com/
+
+***
+
+LICENSE
+
+CC BY-NC-SA 4.0
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+David J. Malan
+https://cs.harvard.edu/malan
+malan@harvard.edu</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/e4d15d2c/img/favicon_144x144.png" class="icon bookmark-icon"/>https://www.youtube.com/watch?v=IDDmrzzB14M&amp;list=PLhQjrBD2T380F_inVRXMIHCqLaNUd7bN4&amp;pp=iAQB</div></div><img src="https://i.ytimg.com/vi/IDDmrzzB14M/maxresdefault.jpg" class="bookmark-image"/></a></figure><p id="2221c931-98d4-8106-939e-dcb7a6a47ea4" class="">
+</p><p id="2221c931-98d4-81a5-8717-ea44f23c3a1a" class="">b. Grokking Algorithms (best book)</p><figure id="2221c931-98d4-8153-bca4-ef41068154cf"><a href="https://amzn.to/36pEfFV" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Manning Publications Grokking Algorithms: An illustrated guide for programmers and other curious people</div><div class="bookmark-description">Manning Publications Grokking Algorithms: An illustrated guide for programmers and other curious people : Bhargava, Aditya: Amazon.in: Books</div></div><div class="bookmark-href"><img src="https://www.amazon.in/favicon.ico" class="icon bookmark-icon"/>https://amzn.to/36pEfFV</div></div><img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/51WbaR0RpKL._SR600%2c315_PIWhiteStrip%2cBottomLeft%2c0%2c35_PIStarRatingFOURANDHALF%2cBottomLeft%2c360%2c-6_SR600%2c315_ZA1%252C311%2c445%2c290%2c400%2c400%2cAmazonEmberBold%2c12%2c4%2c0%2c0%2c5_SCLZZZZZZZ_FMpng_BG255%2c255%2c255.jpg" class="bookmark-image"/></a></figure><p id="2221c931-98d4-811f-9b5f-e2fd887708ca" class="">
+</p><h2 id="2221c931-98d4-81fb-b9eb-f33bf772a64f" class="">Foundation Skills for Data Engineers</h2><h3 id="2221c931-98d4-8155-b8f0-d3c1cf951527" class="">Python </h3><p id="2221c931-98d4-81f5-9775-fbfb7794f25c" class=""><em><mark class="highlight-gray_background">You can do one course from this list, I recommend my course as it is specailly desinged for Data Engineers with End-To-End Project</mark></em></p><ol type="1" id="2221c931-98d4-819c-9719-d70c0a9e120b" class="numbered-list" start="1"><li><strong>Python for Data Engineering (by Darshil)</strong></li></ol><figure id="2221c931-98d4-817c-9e82-ccfd8570ec73"><a href="https://datavidhya.com/courses/python" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Python for Data Engineering | Data Vidhya</div><div class="bookmark-description">Join the Python for Data Engineering course by Data Vidhya</div></div><div class="bookmark-href"><img src="https://d3fu8elvld6rb5.cloudfront.net/datavidhya.com/img/rigi/favicon.ico" class="icon bookmark-icon"/>https://datavidhya.com/courses/python</div></div></a></figure><p id="2221c931-98d4-81bf-8d7d-ca9944012f7b" class=""><mark class="highlight-orange_background">GET 50% off using code: PYT50</mark></p><ol type="1" id="2221c931-98d4-819a-849e-f6ccbd7147b9" class="numbered-list" start="2"><li>DataCamp - Data Engineering with Python</li></ol><figure id="2221c931-98d4-8162-9327-df93159d5e79"><a href="http://datacamp.pxf.io/zaO9Gm" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title"></div></div><div class="bookmark-href">http://datacamp.pxf.io/zaO9Gm</div></div></a></figure><ol type="1" id="2221c931-98d4-810e-aa02-f04ce4b3f577" class="numbered-list" start="3"><li><a href="https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.567828&amp;type=2&amp;murl=https%3A%2F%2Fwww.udemy.com%2Fcourse%2Fcomplete-python-bootcamp%2F">Python Bootcamps: Learn Python Programming and Code Training</a></li></ol><figure id="2221c931-98d4-8152-9860-c3ac40816e4b"><a href="https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.567828&amp;type=2&amp;murl=https://www.udemy.com/course/complete-python-bootcamp/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Python Bootcamps: Learn Python Programming and Code Training</div><div class="bookmark-description">Learn Python like a Professional  Start from the basics and go all the way to creating your own applications and games</div></div><div class="bookmark-href"><img src="https://www.udemy.com/staticx/udemy/images/v7/apple-touch-icon.png" class="icon bookmark-icon"/>https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.567828&amp;type=2&amp;murl=https://www.udemy.com/course/complete-python-bootcamp/</div></div><img src="https://img-c.udemycdn.com/course/480x270/567828_67d0.jpg" class="bookmark-image"/></a></figure><h3 id="2221c931-98d4-81ed-bacf-ca5f4f2099c4" class="">SQL</h3><p id="2221c931-98d4-81b3-85b7-cb9b81dbccd2" class=""><em><mark class="highlight-gray_background">Learn about the basics of SQL and how to write queries, once you complete the course make sure you do hands-on practice on Hackerrank or any website you like!</mark></em></p><ol type="1" id="2221c931-98d4-81ce-94ee-ded304111d8a" class="numbered-list" start="1"><li><strong>SQL for Data Engineering (by Darshil)</strong></li></ol><figure id="2221c931-98d4-8154-bc54-ea727356e9f1"><a href="https://datavidhya.com/courses/sqldata" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">SQL FOR DATA ENGINEERING | Data Vidhya</div><div class="bookmark-description">Join the SQL FOR DATA ENGINEERING course by Data Vidhya</div></div><div class="bookmark-href"><img src="https://d3fu8elvld6rb5.cloudfront.net/datavidhya.com/img/rigi/favicon.ico" class="icon bookmark-icon"/>https://datavidhya.com/courses/sqldata</div></div></a></figure><p id="2221c931-98d4-81bc-a6ea-c6ebd5dbe506" class=""><mark class="highlight-orange_background">GET 50% off using code: </mark><mark class="highlight-orange_background"><strong>SQLT50</strong></mark></p><ol type="1" id="2221c931-98d4-8145-8a2d-c69d468387a1" class="numbered-list" start="2"><li>The Complete SQL Bootcamp for the Manipulation and Analysis of Data</li></ol><figure id="2221c931-98d4-8175-ad3e-fa6171d28298"><a href="https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.762616&amp;type=2&amp;murl=https://www.udemy.com/course/the-complete-sql-bootcamp/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">The Complete SQL Bootcamp for the Manipulation and Analysis of Data</div><div class="bookmark-description">Become an expert at SQL!</div></div><div class="bookmark-href"><img src="https://www.udemy.com/staticx/udemy/images/v7/apple-touch-icon.png" class="icon bookmark-icon"/>https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.762616&amp;type=2&amp;murl=https://www.udemy.com/course/the-complete-sql-bootcamp/</div></div><img src="https://img-c.udemycdn.com/course/480x270/762616_7693_3.jpg" class="bookmark-image"/></a></figure><p id="2221c931-98d4-8193-a479-e5bccc9c02d5" class="">
+</p><p id="2221c931-98d4-81c0-83ef-db3b1e0ba1e7" class=""><strong>Practice SQL here</strong></p><figure id="2221c931-98d4-81d9-80c8-ffafb21000b4"><a href="https://www.hackerrank.com/domains/sql" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Solve Programming Questions | HackerRank</div><div class="bookmark-description">A special-purpose language designed for managing data held in a relational database.</div></div><div class="bookmark-href"><img src="https://hrcdn.net/fcore/assets/favicon-ddc852f75a.png" class="icon bookmark-icon"/>https://www.hackerrank.com/domains/sql</div></div><img src="https://hrcdn.net/og/default.jpg" class="bookmark-image"/></a></figure><p id="2221c931-98d4-8145-8718-c2283e37c4af" class="">
+</p><h3 id="2221c931-98d4-8146-ae94-f719b0faff6a" class=""><strong>Do Hands-On Project</strong></h3><figure id="2221c931-98d4-81e8-9ad1-dc6c90ebabbf"><a href="https://www.youtube.com/watch?v=2xyoz0T47Bs&amp;list=PLBJe2dFI4sgukOW6O0B-OVyX9c6fQKJ2N" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Complete a project with me! - Building Data Model and Database | #LearnByDoing (Part ⅓)</div><div class="bookmark-description">Join Course Python for Data Engineering - https://bit.ly/4140KI9
+
+Collecting knowledge is of no use if you don’t know how to put it into use. With to motive of learning of by doing, here we are with this series where I will take you through basics and concepts of a topic and then we will do a beginner level project on the same. 
+
+In this video we will know more about Basics Data Models, starting from what is data model, why is data modeling important, who requires to learn data modeling, relational model and database to ACID properties continued with an exercise of creating a table with postgres.
+
+Join Discord Channel - https://discord.gg/dHjvD8JCG3
+
+=====================Resources=====================
+🎯 Programming Language(Python)
+👉 https://www.w3schools.com/python/
+
+🎯 Database Management
+👉 https://www.javatpoint.com/dbms-tutorial
+
+🎯 SQL
+👉 https://www.w3schools.com/sql
+
+🎯 Data Transformation and Libraries: 
+👉 https://www.youtube.com/watch?v=vmEHCJofslg
+👉 https://www.youtube.com/watch?v=QUT1VHiLmmI
+👉 https://www.youtube.com/watch?v=yZTBMMdPOww
+
+🎯 PostgreSQL
+👉 https://www.youtube.com/watch?v=-VO7YjQeG6Y
+
+
+TIMESTAMP
+0:00 Introduction to Data Engineering Project
+1:11 Index
+1:56 What is Data Model?
+4:35 Why Data Modelling is Important?
+6:00 Data Scientist, Data Engineer, and Software Engineer
+6:30 Relational Model
+9:00 Relational Database
+9:47 Database Basics
+11:03 Advantages of RDBMS
+12:14 ACID Properties
+15:00 When not to use RDBMS
+16:14 Next Week Project
+16:30 Doing Project and Solving Doubts
+
+
+===================Follow Me Here===================
+👦🏻 My Linkedin - https://www.linkedin.com/in/darshil-parmar/
+ 📷 Instagram - https://www.instagram.com/darshilparmarr
+🎯Twitter - https://twitter.com/parmardarshil07
+
+===================About Me===================
+Freelance Data Engineer and Solution Architect. 
+I love learning about technology and teaching thing I know to other people. The goal of creating this channel was to teach everything I know to the world, I have spent most of my time learning things online and I want to share all my learning on this youtube channel. 
+I will be posting content related to data engineering, architecting systems, data science, machine learning, and interview preparation.
+
+
+Thank you for watching the video, see you in the next video :)
+
+My Accessories
+🎙 Mic -https://amzn.to/3Bnu53n
+📱 Camera (I use my phone) - https://amzn.to/3wOogIU
+🎧 Headphone - https://amzn.to/3BsJxLB
+⌨ Mouse and Keyboard - https://amzn.to/3zeF1yq
+🖥  Monitor - https://amzn.to/3zk0Dts
+
+hashtags
+#dataengineering #dataengineeringproject #dataengineer</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/28b0985e/img/favicon_144x144.png" class="icon bookmark-icon"/>https://www.youtube.com/watch?v=2xyoz0T47Bs&amp;list=PLBJe2dFI4sgukOW6O0B-OVyX9c6fQKJ2N</div></div><img src="https://i.ytimg.com/vi/2xyoz0T47Bs/maxresdefault.jpg" class="bookmark-image"/></a></figure><h2 id="2221c931-98d4-8130-abc7-f643d9c89fbf" class="">Core skills for Data Engineers</h2><p id="2221c931-98d4-816d-a5fa-c14e881721b6" class="">Here you will be doing two things at the same time, reading book for strong foundation and doing courses to learn latest tools</p><p id="2221c931-98d4-8175-9948-c1df1a7e6ff3" class="">
+</p><p id="2221c931-98d4-81e7-8f32-ef41fedb07ef" class=""><strong>Get The Fundamentals of Data Engineer book here </strong></p><figure id="2221c931-98d4-8186-98ba-c315a08507ff"><a href="https://amzn.to/3zFBnjz" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Fundamentals of Data Engineering: Plan and Build Robust Data Systems (Grayscale Indian Edition)</div><div class="bookmark-description">Fundamentals of Data Engineering: Plan and Build Robust Data Systems (Grayscale Indian Edition) : Joe Reis, Matt Housley: Amazon.in: Books</div></div><div class="bookmark-href"><img src="https://www.amazon.in/favicon.ico" class="icon bookmark-icon"/>https://amzn.to/3zFBnjz</div></div><img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/41W4VzLNQ1L._SR600%2c315_PIWhiteStrip%2cBottomLeft%2c0%2c35_PIStarRatingFOURANDHALF%2cBottomLeft%2c360%2c-6_SR600%2c315_ZA406%2c445%2c290%2c400%2c400%2cAmazonEmberBold%2c12%2c4%2c0%2c0%2c5_SCLZZZZZZZ_FMpng_BG255%2c255%2c255.jpg" class="bookmark-image"/></a></figure><p id="2221c931-98d4-81fb-8228-d078c0cf438c" class="">Read this book in background while doing other courses</p><p id="2221c931-98d4-814f-b198-c983d5a62fb3" class="">
+</p><p id="2221c931-98d4-8129-9d40-ed8fb5bacb02" class=""><strong>Learn more about this book here </strong></p><figure id="2221c931-98d4-811a-88ea-c23143b7d66c"><a href="https://youtu.be/leElg0VdfG4" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">The only Data Engineering book you&#x27;ll ever need</div><div class="bookmark-description">Join Python for Data Engineering Course: https://datavidhya.com/courses
+
+Best book for Data Engineering? In this video, I have reviewed The Fundamentals of Data Engineering and shared my learnings :)
+
+Buy this book from here: https://amzn.to/3zFBnjz
+
+P.S. This video is not sponsored, I liked the book so decided to share it ;) 
+
+Timestamps
+0:00 Best book of Data Engineers?
+1:57 Foundation and Building Blocks (Part 1)
+3:08 The Data Engineering Lifecycle in Depth (Part 2)
+5:13 The Future of Data Engineering + Surprise ;)  (Part 3)
+
+👦🏻 My Linkedin - https://www.linkedin.com/in/darshil-parmar/
+ 📷 Instagram - https://www.instagram.com/darshilparmarr
+🎯Twitter - https://twitter.com/parmardarshil07
+
+🌟 Please leave a LIKE ❤️ and SUBSCRIBE for more AMAZING content! 🌟
+
+3 Books You Should Read
+📈Principles: Life and Work: https://amzn.to/3HQJDyP 
+👀Deep Work: https://amzn.to/3IParkk 
+💼Rework: https://amzn.to/3HW981O 
+
+Tech I use every day
+💻MacBook Pro M1: https://amzn.to/3CiFVwC 
+📺LG 22 Inch Monitor: https://amzn.to/3zk0Dts 
+🎥Sony ZV1: https://amzn.to/3hRpSMJ 
+🎙Maono AU-A04: https://amzn.to/3Bnu53n
+⽴Tripod Stand: https://amzn.to/3tA7hu7 
+🔅Osaka Ring Light and Stand: https://amzn.to/3MtLAEG 
+🎧Sony WH-1000XM4 Headphone: https://amzn.to/3sM4sXS 
+🖱Zebronics Zeb-War Keyboard and Mouse:  https://amzn.to/3zeF1yq 
+💺CELLBELL C104 Office Chair: https://amzn.to/3IRpiL2 
+
+
+👉Data Engineering Complete Roadmap: https://www.youtube.com/playlist?list=PLBJe2dFI4sgtlK_zaqaIBdJFgieYPnQ07
+👉Data Engineering Project Series: https://www.youtube.com/playlist?list=PLBJe2dFI4sgukOW6O0B-OVyX9c6fQKJ2N 
+👉Become Full-Time Freelancer: https://www.youtube.com/playlist?list=PLBJe2dFI4sgtza0sAnNFwo8KPG0GcO9Il 
+👉Data With Darshil Podcast: https://www.youtube.com/playlist?list=PLBJe2dFI4sgv_XmEDaXF3z1MNib7R3KUY 
+
+
+
+✨ Tags ✨
+
+
+✨ Hashtags ✨
+#dataengineering #books #python</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/e4d15d2c/img/favicon_144x144.png" class="icon bookmark-icon"/>https://youtu.be/leElg0VdfG4</div></div><img src="https://i.ytimg.com/vi/leElg0VdfG4/maxresdefault.jpg" class="bookmark-image"/></a></figure><h3 id="2221c931-98d4-81e1-9dea-d786e50cc804" class="">Data Warehouse (do one course)</h3><ol type="1" id="2221c931-98d4-81fb-a7b9-dde40d5e5729" class="numbered-list" start="1"><li><strong>Data Warehouse using Snowflake for Data Engineers (by Darshil)</strong></li></ol><figure id="2221c931-98d4-81d9-a682-fb83974edbcf"><a href="https://datavidhya.com/courses/datawarehouse" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Data Warehouse for Data Engineering with Snowflake</div><div class="bookmark-description">Join the Data Warehouse for Data Engineering with Snowflake course by Data Vidhya</div></div><div class="bookmark-href"><img src="https://d3fu8elvld6rb5.cloudfront.net/datavidhya.com/img/rigi/favicon.ico" class="icon bookmark-icon"/>https://datavidhya.com/courses/datawarehouse</div></div></a></figure><p id="2221c931-98d4-81ac-9584-c999a63b72d3" class=""><mark class="highlight-orange_background">GET 50% off using code: DWT50</mark></p><ol type="1" id="2221c931-98d4-81be-b57a-ece1e7c191b7" class="numbered-list" start="2"><li>Data Warehousing for Business Intelligence Specialization</li></ol><figure id="2221c931-98d4-8138-8554-f070db7fa1d9"><a href="http://coursera.pxf.io/15zQYB" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Data Warehousing for Business Intelligence</div><div class="bookmark-description">Offered by University of Colorado System. Harness ... Enroll for free.</div></div><div class="bookmark-href"><img src="https://d3njjcbhbojbot.cloudfront.net/web/images/favicons/favicon-v2-194x194.png" class="icon bookmark-icon"/>http://coursera.pxf.io/15zQYB</div></div><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~data-warehousing/XDP~SPECIALIZATION!~data-warehousing.jpeg" class="bookmark-image"/></a></figure><ol type="1" id="2221c931-98d4-8117-89f2-c683254736ae" class="numbered-list" start="3"><li>Data Warehouse Fundamentals for Beginners</li></ol><figure id="2221c931-98d4-8140-b51e-fa15ca6f0b2a"><a href="https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.2752048&amp;type=2&amp;murl=https://www.udemy.com/course/data-warehouse-fundamentals-for-beginners/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Data Warehouse Fundamentals for Beginners</div><div class="bookmark-description">Best Practices and Concepts for Architecture and Dimensional Design</div></div><div class="bookmark-href"><img src="https://www.udemy.com/staticx/udemy/images/v7/apple-touch-icon.png" class="icon bookmark-icon"/>https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.2752048&amp;type=2&amp;murl=https://www.udemy.com/course/data-warehouse-fundamentals-for-beginners/</div></div><img src="https://img-c.udemycdn.com/course/480x270/2752048_7ce2.jpg" class="bookmark-image"/></a></figure><p id="2221c931-98d4-81a5-8a36-c436a6ba46d0" class="">
+</p><p id="2221c931-98d4-8185-b601-c01d988642a6" class=""><mark class="highlight-teal_background"><strong>You can get complete combo package of Python, SQL and Data Warehouse here: </strong></mark></p><figure id="2221c931-98d4-813b-8302-dc83806350ca"><a href="https://courses.datavidhya.com/checkout/zwbzl8e2Cx" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title"></div></div><div class="bookmark-href"><img src="https://courses.datavidhya.com/img/favicon/apple-touch-icon.png" class="icon bookmark-icon"/>https://courses.datavidhya.com/checkout/zwbzl8e2Cx</div></div></a></figure><p id="2221c931-98d4-8153-8688-fa64da410abd" class=""><mark class="highlight-orange_background">GET 50% off using code: </mark><mark class="highlight-orange_background"><strong>COMBO50</strong></mark></p><p id="2221c931-98d4-8107-9ae3-d2630aeff438" class="">
+</p><h3 id="2221c931-98d4-8123-b3e3-e24d9dd04a9c" class="">Apache Spark (do one course)</h3><p id="2221c931-98d4-811e-9e03-c3ddf6e03f06" class="">Watch this intro video first</p><figure id="2221c931-98d4-819e-900c-ccead53463ca"><a href="https://youtu.be/v_uodKAywXA" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Learn Apache Spark in 10 Minutes | Step by Step Guide</div><div class="bookmark-description">Join My Data Engineer Courses Here: https://datavidhya.com/courses
+
+What is Apache Spark and How To Learn? This video will discuss Apache Spark, its popularity, basic architecture, and everything around it.
+
+ 📷 Instagram - https://www.instagram.com/datawithdarshil
+🎯Twitter - https://twitter.com/parmardarshil07
+👦🏻 My Linkedin - https://www.linkedin.com/in/darshil-parmar/
+
+🌟 Please leave a LIKE ❤️ and SUBSCRIBE for more AMAZING content! 🌟
+
+3 Books You Should Read
+📈Principles: Life and Work: https://amzn.to/3HQJDyP 
+👀Deep Work: https://amzn.to/3IParkk 
+💼Rework: https://amzn.to/3HW981O 
+
+Tech I use every day
+💻MacBook Pro M1: https://amzn.to/3CiFVwC 
+📺LG 22 Inch Monitor: https://amzn.to/3zk0Dts 
+🎥Sony ZV1: https://amzn.to/3hRpSMJ 
+🎙Maono AU-A04: https://amzn.to/3Bnu53n
+⽴Tripod Stand: https://amzn.to/3tA7hu7 
+🔅Osaka Ring Light and Stand: https://amzn.to/3MtLAEG 
+🎧Sony WH-1000XM4 Headphone: https://amzn.to/3sM4sXS 
+🖱Zebronics Zeb-War Keyboard and Mouse:  https://amzn.to/3zeF1yq 
+💺CELLBELL C104 Office Chair: https://amzn.to/3IRpiL2 
+
+
+👉Data Engineering Complete Roadmap: https://www.youtube.com/playlist?list=PLBJe2dFI4sgtlK_zaqaIBdJFgieYPnQ07
+👉Data Engineering Project Series: https://www.youtube.com/playlist?list=PLBJe2dFI4sgukOW6O0B-OVyX9c6fQKJ2N 
+👉Become Full-Time Freelancer: https://www.youtube.com/playlist?list=PLBJe2dFI4sgtza0sAnNFwo8KPG0GcO9Il 
+👉Data With Darshil Podcast: https://www.youtube.com/playlist?list=PLBJe2dFI4sgv_XmEDaXF3z1MNib7R3KUY 
+
+
+
+✨ Tags ✨
+
+
+✨ Hashtags ✨</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/e4d15d2c/img/favicon_144x144.png" class="icon bookmark-icon"/>https://youtu.be/v_uodKAywXA</div></div><img src="https://i.ytimg.com/vi/v_uodKAywXA/maxresdefault.jpg" class="bookmark-image"/></a></figure><ol type="1" id="2221c931-98d4-81c3-ab18-e2d70e32a091" class="numbered-list" start="1"><li><strong>DataCamp</strong> - Big Data Fundamentals with PySpark (Recommended)</li></ol><figure id="2221c931-98d4-816e-893b-c62017ead4f0"><a href="http://datacamp.pxf.io/P0nNQq" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title"></div></div><div class="bookmark-href">http://datacamp.pxf.io/P0nNQq</div></div></a></figure><ol type="1" id="2221c931-98d4-8156-991b-fb5112126316" class="numbered-list" start="2"><li><strong>Udemy</strong> - Spark and Python for Big Data with PySpark</li></ol><figure id="2221c931-98d4-81d7-827c-c8deaf8c2128"><a href="https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.980798&amp;type=2&amp;murl=https://www.udemy.com/course/spark-and-python-for-big-data-with-pyspark/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Spark and Python for Big Data with PySpark</div><div class="bookmark-description">Learn how to use Spark with Python, including Spark Streaming, Machine Learning, Spark 2.0 DataFrames and more!</div></div><div class="bookmark-href"><img src="https://www.udemy.com/staticx/udemy/images/v7/apple-touch-icon.png" class="icon bookmark-icon"/>https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.980798&amp;type=2&amp;murl=https://www.udemy.com/course/spark-and-python-for-big-data-with-pyspark/</div></div><img src="https://img-c.udemycdn.com/course/480x270/980798_6081.jpg" class="bookmark-image"/></a></figure><h3 id="2221c931-98d4-8196-adba-d573186233fa" class=""><strong>Databricks (do one course)</strong></h3><figure id="2221c931-98d4-815a-9137-fb64c2de9361"><a href="http://imp.i384100.net/WDbj5P" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Microsoft Azure Databricks for Data Engineering</div><div class="bookmark-description">Offered by Microsoft. In this course, you will learn how ... Enroll for free.</div></div><div class="bookmark-href"><img src="https://d3njjcbhbojbot.cloudfront.net/web/images/favicons/favicon-v2-194x194.png" class="icon bookmark-icon"/>http://imp.i384100.net/WDbj5P</div></div><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~COURSE!~microsoft-azure-databricks-for-data-engineering/XDP~COURSE!~microsoft-azure-databricks-for-data-engineering.jpeg" class="bookmark-image"/></a></figure><figure id="2221c931-98d4-81ad-9cca-ca4a0c9e6087"><a href="https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.5015186&amp;type=2&amp;murl=https://www.udemy.com/course/databricks-certified-data-engineer-associate-practice-exams/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Online Courses - Learn Anything, On Your Schedule | Udemy</div><div class="bookmark-description">Udemy is an online learning and teaching marketplace with over 213,000 courses and 62 million students. Learn programming, marketing, data science and more.</div></div><div class="bookmark-href"><img src="https://www.udemy.com/staticx/udemy/images/v7/apple-touch-icon.png" class="icon bookmark-icon"/>https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.5015186&amp;type=2&amp;murl=https://www.udemy.com/course/databricks-certified-data-engineer-associate-practice-exams/</div></div><img src="https://s.udemycdn.com/meta/default-meta-image-v2.png" class="bookmark-image"/></a></figure><p id="2221c931-98d4-8126-ad29-e56cd1739736" class="">
+</p><h2 id="2221c931-98d4-81dd-a1b8-e089ad983fd6" class="">Apache Kafka</h2><figure id="2221c931-98d4-81c5-a0c0-e0dab2676e75"><a href="https://bit.ly/3qdhRqa" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Apache Kafka Course for Beginners: Learn Kafka Online</div><div class="bookmark-description">START HERE: Learn Apache Kafka 3.0 Ecosystem, Core Concepts, Real World Java Producers/Consumers &amp; Big Data Architecture</div></div><div class="bookmark-href"><img src="https://www.udemy.com/staticx/udemy/images/v7/apple-touch-icon.png" class="icon bookmark-icon"/>https://bit.ly/3qdhRqa</div></div><img src="https://img-c.udemycdn.com/course/480x270/1075642_b6d2_10.jpg" class="bookmark-image"/></a></figure><p id="2221c931-98d4-817c-b4ff-d91d120b5187" class="">
+</p><h3 id="2221c931-98d4-819c-9ecb-f0e7fa432102" class="">Data Orchestration (AirFlow)</h3><figure id="2221c931-98d4-8106-9b4b-cd976dd7b2d5"><a href="https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.1919064&amp;type=2&amp;murl=https://www.udemy.com/course/the-complete-hands-on-course-to-master-apache-airflow/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">The Complete Hands-On Introduction to Apache Airflow</div><div class="bookmark-description">Learn to author, schedule and monitor data pipelines through practical examples using Apache Airflow</div></div><div class="bookmark-href"><img src="https://www.udemy.com/staticx/udemy/images/v7/apple-touch-icon.png" class="icon bookmark-icon"/>https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.1919064&amp;type=2&amp;murl=https://www.udemy.com/course/the-complete-hands-on-course-to-master-apache-airflow/</div></div><img src="https://img-c.udemycdn.com/course/480x270/1919064_e7a7_7.jpg" class="bookmark-image"/></a></figure><p id="2221c931-98d4-8117-a24d-c5a5bfd8b1b0" class="">
+</p><h3 id="2221c931-98d4-8129-a017-daa952d85dcc" class="">Cloud Computing</h3><p id="2221c931-98d4-813a-8c02-dd0897fe2ea4" class=""><strong>AWS (Amazon Web Services)</strong></p><figure id="2221c931-98d4-8148-8d01-c16848bacaf9"><a href="http://imp.i384100.net/b3LZM9" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">AWS Cloud Solutions Architect</div><div class="bookmark-description">Offered by Amazon Web Services. Start here to become an ... Enroll for free.</div></div><div class="bookmark-href"><img src="https://d3njjcbhbojbot.cloudfront.net/web/images/favicons/favicon-v2-194x194.png" class="icon bookmark-icon"/>http://imp.i384100.net/b3LZM9</div></div><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~aws-cloud-solutions-architect/XDP~SPECIALIZATION!~aws-cloud-solutions-architect.jpeg" class="bookmark-image"/></a></figure><figure id="2221c931-98d4-81a6-a029-dd3ab6ee9911"><a href="https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.2196488&amp;type=2&amp;murl=https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Ultimate AWS Certified Solutions Architect Associate (SAA)</div><div class="bookmark-description">Full Practice Exam | Learn Cloud Computing | Pass the AWS Certified Solutions Architect Associate Certification SAA-C03!</div></div><div class="bookmark-href"><img src="https://www.udemy.com/staticx/udemy/images/v7/apple-touch-icon.png" class="icon bookmark-icon"/>https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.2196488&amp;type=2&amp;murl=https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/</div></div><img src="https://img-c.udemycdn.com/course/480x270/2196488_8fc7_10.jpg" class="bookmark-image"/></a></figure><p id="2221c931-98d4-817a-b969-ff6dfd2e5147" class="">
+</p><h3 id="2221c931-98d4-81c1-84c1-e8d8b7978af3" class="">Do Projects</h3><figure id="2221c931-98d4-81de-a898-f143b8be1c5f"><a href="https://youtube.com/playlist?list=PLBJe2dFI4sguF2nU6Z3Od7BX8eALZN3mU" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">YOUTUBE DATA ANALYSIS - DATA ENGINEERING PROJECT</div><div class="bookmark-description">Execute the END TO END DATA ENGINEERING PROJECT using Kaggle YouTube Trending Dataset.</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/28b0985e/img/favicon_144x144.png" class="icon bookmark-icon"/>https://youtube.com/playlist?list=PLBJe2dFI4sguF2nU6Z3Od7BX8eALZN3mU</div></div><img src="https://i.ytimg.com/vi/yZKJFKu49Dk/hqdefault.jpg" class="bookmark-image"/></a></figure><figure id="2221c931-98d4-816e-8321-f1eb35a59481"><a href="https://youtube.com/playlist?list=PLBJe2dFI4sgvavQzL2Hm5CsnoIWHY5fI3" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">COVID ANALYSIS - END TO END DATA ENGINEERING PROJECT</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/28b0985e/img/favicon_144x144.png" class="icon bookmark-icon"/>https://youtube.com/playlist?list=PLBJe2dFI4sgvavQzL2Hm5CsnoIWHY5fI3</div></div><img src="https://i.ytimg.com/vi/gFWu-SSzRzc/hqdefault.jpg" class="bookmark-image"/></a></figure><figure id="2221c931-98d4-8165-a6d5-e47dd4e73e1f"><a href="https://youtube.com/playlist?list=PLBJe2dFI4sgt-9GR2j-rTeKtimE9pfqyt" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Data Engineering Project - Cloud Series</div><div class="bookmark-description">This playlist is the continuation of my Data Engineering Project Series! You will do end to end data engineering project on AWS Cloud where you will create d...</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/28b0985e/img/favicon_144x144.png" class="icon bookmark-icon"/>https://youtube.com/playlist?list=PLBJe2dFI4sgt-9GR2j-rTeKtimE9pfqyt</div></div><img src="https://i.ytimg.com/vi/QHIOX_RqjLI/hqdefault.jpg" class="bookmark-image"/></a></figure><p id="2221c931-98d4-81b1-a1b2-fb61c5c69123" class="">
+</p><p id="2221c931-98d4-8164-b24c-e89cfa2b330e" class=""><strong>Microsoft</strong> <strong>Azure</strong></p><figure id="2221c931-98d4-81ea-8695-fb51f103daab"><a href="http://imp.i384100.net/YgO5MJ" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Microsoft Azure Data Engineering Associate (DP-203)</div><div class="bookmark-description">Offered by Microsoft. Launch Your Career in Data ... Enroll for free.</div></div><div class="bookmark-href"><img src="https://d3njjcbhbojbot.cloudfront.net/web/images/favicons/favicon-v2-194x194.png" class="icon bookmark-icon"/>http://imp.i384100.net/YgO5MJ</div></div><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~microsoft-azure-dp-203-data-engineering/XDP~SPECIALIZATION!~microsoft-azure-dp-203-data-engineering.jpeg" class="bookmark-image"/></a></figure><figure id="2221c931-98d4-8140-b57b-de4c28641c1d"><a href="https://youtu.be/IaA9YNlg5hM?si=6Ez3JV8Bxf3a8IAF" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Olympic Data Analytics | Azure End-To-End Data Engineering Project</div><div class="bookmark-description">Join My Data Engineer Courses - https://datavidhya.com/courses
+
+In this video, you will analyze Olympic data using various tools and technologies, including Azure Data Factory, Data Lake Gen 2, Synapse Analytics, and Azure Databricks.
+
+Get more projects like this here - https://bit.ly/3saZfeo
+
+Watch Part 2 here - https://youtu.be/nW0ffUW2vw4
+
+🌟 Please leave a LIKE ❤️ and SUBSCRIBE for more AMAZING content! 🌟
+
+1. The dataset used in the video: https://github.com/darshilparmar/tokyo-olympic-azure-data-engineering-project
+2. Azure account creation - https://portal.azure.com/
+3. Original Dataset link - https://www.kaggle.com/datasets/arjunprasadsarkhel/2021-olympics-in-tokyo
+
+Errors? Join Data With Darshil Discord Server: https://discord.gg/dHjvD8JCG3
+
+Timestamps
+0:00 Project Intro
+1:30 Understand Architecture &amp; Prerequisite 
+6:58 Understand Dataset &amp; APIs
+10:49 Azure Basics, Services Understanding, Account Setup
+24:05 Complete Project Execution 
+
+
+👦🏻 My Linkedin - https://www.linkedin.com/in/darshil-parmar/
+ 📷 Instagram - https://www.instagram.com/darshilparmarr
+🎯Twitter - https://twitter.com/parmardarshil07
+
+🌟 Please leave a LIKE ❤️ and SUBSCRIBE for more AMAZING content! 🌟
+
+3 Books You Should Read
+📈Principles: Life and Work: https://amzn.to/3HQJDyP 
+👀Deep Work: https://amzn.to/3IParkk 
+💼Rework: https://amzn.to/3HW981O 
+
+Tech I use every day
+💻MacBook Pro M1: https://amzn.to/3CiFVwC 
+📺LG 22 Inch Monitor: https://amzn.to/3zk0Dts 
+🎥Sony ZV1: https://amzn.to/3hRpSMJ 
+🎙Maono AU-A04: https://amzn.to/3Bnu53n
+⽴Tripod Stand: https://amzn.to/3tA7hu7 
+🔅Osaka Ring Light and Stand: https://amzn.to/3MtLAEG 
+🎧Sony WH-1000XM4 Headphone: https://amzn.to/3sM4sXS 
+🖱Zebronics Zeb-War Keyboard and Mouse:  https://amzn.to/3zeF1yq 
+💺CELLBELL C104 Office Chair: https://amzn.to/3IRpiL2 
+
+
+👉Data Engineering Complete Roadmap: https://www.youtube.com/playlist?list=PLBJe2dFI4sgtlK_zaqaIBdJFgieYPnQ07
+👉Data Engineering Project Series: https://www.youtube.com/playlist?list=PLBJe2dFI4sgukOW6O0B-OVyX9c6fQKJ2N 
+👉Become Full-Time Freelancer: https://www.youtube.com/playlist?list=PLBJe2dFI4sgtza0sAnNFwo8KPG0GcO9Il 
+👉Data With Darshil Podcast: https://www.youtube.com/playlist?list=PLBJe2dFI4sgv_XmEDaXF3z1MNib7R3KUY 
+
+
+
+✨ Tags ✨
+azure data engineering, end-to-end azure data engineering project, azure data engineering project free
+
+✨ Hashtags ✨
+#azure #dataengineering #databricks</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/e4d15d2c/img/favicon_144x144.png" class="icon bookmark-icon"/>https://youtu.be/IaA9YNlg5hM?si=6Ez3JV8Bxf3a8IAF</div></div><img src="https://i.ytimg.com/vi/IaA9YNlg5hM/maxresdefault.jpg" class="bookmark-image"/></a></figure><p id="2221c931-98d4-8122-9e7a-e32a4ad1d9a4" class="">
+</p><p id="2221c931-98d4-818f-9a7a-cc53eed268c3" class=""><strong>GCP (Google Cloud Platform)</strong></p><figure id="2221c931-98d4-815c-8c9a-f3a032e9e71d"><a href="http://coursera.pxf.io/4eMjNG" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Preparing for Google Cloud Certification: Cloud Data Engineer</div><div class="bookmark-description">Offered by Google Cloud. Advance your career in data ... Enroll for free.</div></div><div class="bookmark-href"><img src="https://d3njjcbhbojbot.cloudfront.net/web/images/favicons/favicon-v2-194x194.png" class="icon bookmark-icon"/>http://coursera.pxf.io/4eMjNG</div></div><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~gcp-data-engineering/XDP~SPECIALIZATION!~gcp-data-engineering.jpeg" class="bookmark-image"/></a></figure><figure id="2221c931-98d4-81b7-8e24-c85101a1e8ae"><a href="https://youtu.be/WpQECq5Hx9g?si=TIFz_QRakv-HAkD9" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">🚖 Uber Data Analytics | End-To-End Data Engineering Project</div><div class="bookmark-description">Join My Python for Data Engineering Course: https://datavidhya.com/courses
+
+In this video, you will analyze Uber data using various tools and technologies, including GCP Storage, Python, Compute Instance, Mage Data Pipeline Tool, BigQuery, and Looker Studio. 
+
+Find Resources used in the video here: https://github.com/darshilparmar/uber-etl-pipeline-data-engineering-project
+
+GCP Account Tutorial - https://k21academy.com/google-cloud/create-google-cloud-free-tier-account/
+
+Stuck on an error? Ask here: https://discord.gg/dHjvD8JCG3
+
+🌟 Please leave a LIKE ❤️ and SUBSCRIBE for more AMAZING content! 🌟
+
+Timestamps
+0:00 In the video
+0:21 Intro, Basic Concept &amp; Prerequisites
+7:17 Before you start the project (Important!)
+8:19 Project Execution Start (Data Modelling)
+27:56 Writing Transformation Code (Python)
+40:40 Google Cloud Storage &amp; Mage Installation
+1:15:00 BigQuery Data Analysis
+1:30:00 Building Dashboard 
+
+
+👦🏻 My Linkedin - https://www.linkedin.com/in/darshil-parmar/
+ 📷 Instagram - https://www.instagram.com/darshilparmarr
+🎯Twitter - https://twitter.com/parmardarshil07
+
+
+3 Books You Should Read
+📈Principles: Life and Work: https://amzn.to/3HQJDyP 
+👀Deep Work: https://amzn.to/3IParkk 
+💼Rework: https://amzn.to/3HW981O 
+
+Tech I use every day
+💻MacBook Pro M1: https://amzn.to/3CiFVwC 
+📺LG 22 Inch Monitor: https://amzn.to/3zk0Dts 
+🎥Sony ZV1: https://amzn.to/3hRpSMJ 
+🎙Maono AU-A04: https://amzn.to/3Bnu53n
+⽴Tripod Stand: https://amzn.to/3tA7hu7 
+🔅Osaka Ring Light and Stand: https://amzn.to/3MtLAEG 
+🎧Sony WH-1000XM4 Headphone: https://amzn.to/3sM4sXS 
+🖱Zebronics Zeb-War Keyboard and Mouse:  https://amzn.to/3zeF1yq 
+💺CELLBELL C104 Office Chair: https://amzn.to/3IRpiL2 
+
+
+👉Data Engineering Complete Roadmap: https://www.youtube.com/playlist?list=PLBJe2dFI4sgtlK_zaqaIBdJFgieYPnQ07
+👉Data Engineering Project Series: https://www.youtube.com/playlist?list=PLBJe2dFI4sgukOW6O0B-OVyX9c6fQKJ2N 
+👉Become Full-Time Freelancer: https://www.youtube.com/playlist?list=PLBJe2dFI4sgtza0sAnNFwo8KPG0GcO9Il 
+👉Data With Darshil Podcast: https://www.youtube.com/playlist?list=PLBJe2dFI4sgv_XmEDaXF3z1MNib7R3KUY 
+
+
+
+✨ Tags ✨
+end-to-end data engineering project, data engineer roadmap, data engineering projects for resume, free data engineering project
+
+✨ Hashtags ✨
+#dataengineering #dataanalytics #python</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/e4d15d2c/img/favicon_144x144.png" class="icon bookmark-icon"/>https://youtu.be/WpQECq5Hx9g?si=TIFz_QRakv-HAkD9</div></div><img src="https://i.ytimg.com/vi/WpQECq5Hx9g/maxresdefault.jpg" class="bookmark-image"/></a></figure><h2 id="2221c931-98d4-8105-a9c8-eaab08020dc5" class="">Advance Data Engineering</h2><h3 id="2221c931-98d4-811c-ab4f-f308901e5dd8" class="">Open Table Format</h3><figure id="2221c931-98d4-813a-9653-def7714505a3"><a href="https://medium.com/geekculture/open-table-formats-delta-iceberg-hudi-732f682ec0bb" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Open Table Formats — Delta, Iceberg &amp; Hudi</div><div class="bookmark-description">Brief intro</div></div><div class="bookmark-href"><img src="https://miro.medium.com/v2/resize:fill:152:152/1*sHhtYhaCe2Uc3IU0IgKwIQ.png" class="icon bookmark-icon"/>https://medium.com/geekculture/open-table-formats-delta-iceberg-hudi-732f682ec0bb</div></div><img src="https://miro.medium.com/v2/resize:fit:1200/1*Mx2cNcKfGKzeeG2X6Ot_NA.png" class="bookmark-image"/></a></figure><figure id="2221c931-98d4-81a7-8b62-fe2ed593489a"><a href="https://medium.com/starschema-blog/open-table-formats-for-efficient-data-processing-delta-lake-vs-iceberg-vs-hudi-b1107141e9a6" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Open Table Formats for Efficient Data Processing: Delta Lake vs Iceberg vs Hudi</div><div class="bookmark-description">Compare three popular open table formats to see which one will give you better performance based on your data processing needs.</div></div><div class="bookmark-href"><img src="https://miro.medium.com/v2/resize:fill:152:152/1*sHhtYhaCe2Uc3IU0IgKwIQ.png" class="icon bookmark-icon"/>https://medium.com/starschema-blog/open-table-formats-for-efficient-data-processing-delta-lake-vs-iceberg-vs-hudi-b1107141e9a6</div></div><img src="https://miro.medium.com/v2/resize:fit:1006/1*VNJ_Z3sZA_pSXkHFCgGP8Q.png" class="bookmark-image"/></a></figure><figure id="2221c931-98d4-8170-b25b-f5fee3b3e0b0"><a href="https://www.startdataengineering.com/post/what_why_table_format/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">What is an Open Table Format? &amp; Why to use one?</div><div class="bookmark-description">Do you need clarification about what Open Table Formats (OTF) are? Is it more than just a pointer to some metadata files that helps you sift through the data quickly? What is the difference between table formats (Apache Iceberg, Apache Hudi, Delta Lake) &amp; file formats (Parquet, ORC)? How do OTFs work? Then this post is for you. Understanding the underlying principle behind open table formats will enable you to deeply understand what happens behind the scenes and make the right decisions when designing your data systems. This post will review what open table formats are, their main benefits, and some examples with Apache Iceberg. By the end of this post, you will know what OTFs are, why you use them, and how they work.</div></div><div class="bookmark-href"><img src="https://www.startdataengineering.com/apple-touch-icon-144-precomposed.png" class="icon bookmark-icon"/>https://www.startdataengineering.com/post/what_why_table_format/</div></div><img src="https://www.startdataengineering.com//images/otf/tn.png" class="bookmark-image"/></a></figure><h3 id="2221c931-98d4-8187-a87e-d29c83511589" class="">Data Observability </h3><figure id="2221c931-98d4-81c7-80a2-c148a4861f95"><a href="https://www.acceldata.io/why-data-observability" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">What is Data Observability? What You Need to Know</div><div class="bookmark-description">What is data observability? Learn how data observability gives data teams the ability to maximize data reliability, eliminate operational problems, and perform cloud cost optimization.</div></div><div class="bookmark-href"><img src="https://assets-global.website-files.com/62e14ee46d12dc85d2ae8ec1/62e17d0ea84b0194f9e94a10_6287e5b57d85c96277a00917_acceldata-webclip.png" class="icon bookmark-icon"/>https://www.acceldata.io/why-data-observability</div></div></a></figure><figure id="2221c931-98d4-818c-b98f-ffe2f659179b"><a href="https://www.datadoghq.com/monitoring/observability-platform/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Observability Platform | Datadog</div><div class="bookmark-description">Modern monitoring and security allows you to seamlessly analyze and correlate front and backend data. Try Datadog&#x27;s observability platform with support for 650+ vendor-backed technologies.</div></div><div class="bookmark-href"><img src="https://imgix.datadoghq.com/img/favicons/apple-touch-icon.png" class="icon bookmark-icon"/>https://www.datadoghq.com/monitoring/observability-platform/</div></div><img src="https://imgix.datadoghq.com/img/dg/hero_bg_blue.png?fit=crop&amp;w=1200&amp;h=630" class="bookmark-image"/></a></figure><h3 id="2221c931-98d4-8167-8146-ed926fb6436c" class="">Modern Data Stack</h3><figure id="2221c931-98d4-81e0-8e5d-fc6e9a38314a" class="image"><a href="Untitled%201.png"><img style="width:668.0012817382812px" src="Untitled%201.png"/></a></figure><p id="2221c931-98d4-81b2-964b-dc13983fc4af" class="">Learn basics about modern data stack</p><figure id="2221c931-98d4-817d-826b-d390d090de22"><a href="https://analyticsindiamag.com/modern-data-stack-and-what-we-know-about-it/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Modern Data Stack and what we know about it</div><div class="bookmark-description">The Modern Data Stack is a novel data integration method that may save time while also focusing on high-value tasks.</div></div><div class="bookmark-href"><img src="https://i0.wp.com/analyticsindiamag.com/wp-content/uploads/2019/11/cropped-aim-new-logo-1-22-3.jpg?fit=192%2C192&amp;ssl=1" class="icon bookmark-icon"/>https://analyticsindiamag.com/modern-data-stack-and-what-we-know-about-it/</div></div><img src="https://analyticsindiamag.com/wp-content/uploads/2022/06/modern-data-stacks.jpg" class="bookmark-image"/></a></figure><figure id="2221c931-98d4-819b-a225-d67ea3b5c33a"><a href="https://www.getdbt.com/dbt-learn/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">dbt Learn | dbt Labs | dbt Labs</div><div class="bookmark-description">Explore dbt Learn to find on-demand courses for using dbt.</div></div><div class="bookmark-href"><img src="https://www.getdbt.com/ui/img/social/apple-touch-icon-149x149.png" class="icon bookmark-icon"/>https://www.getdbt.com/dbt-learn/</div></div><img src="https://www.getdbt.com/ui/img/social/facebook.png" class="bookmark-image"/></a></figure><figure id="2221c931-98d4-81e8-8343-f52df3ac6a0e"><a href="https://airbyte.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Airbyte | Open-Source Data Integration Platform | ELT tool</div><div class="bookmark-description">Explore Airbyte, your go-to data integration platform and ELT tool. Seamlessly integrate, transform, and load data with our powerful, user-friendly solution. Accelerate your data workflows and unlock insights effortlessly.</div></div><div class="bookmark-href"><img src="https://assets-global.website-files.com/605e01bc25f7e19a82e74788/609c1197f45eaeee6160a4d5_airbyte-webclip.png" class="icon bookmark-icon"/>https://airbyte.com/</div></div></a></figure><figure id="2221c931-98d4-8158-b92a-f21e58fce529"><a href="https://www.mage.ai/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title"></div></div><div class="bookmark-href"><img src="https://www.mage.ai/favicon.ico" class="icon bookmark-icon"/>https://www.mage.ai/</div></div></a></figure><p id="2221c931-98d4-81da-b3d7-f897b1053f13" class="">
+</p><h3 id="2221c931-98d4-81c1-8bcb-d4a85094ad9f" class="">DataOps</h3><figure id="2221c931-98d4-816b-a92a-f4a44dbdaf2a"><a href="https://www.coursera.org/projects/docker-for-absolute-beginners" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">[Project] Docker for absolute beginners | Coursera</div><div class="bookmark-description">Complete this Guided Project in under 2 hours. Docker ...</div></div><div class="bookmark-href"><img src="https://d3njjcbhbojbot.cloudfront.net/web/images/favicons/favicon-v2-194x194.png" class="icon bookmark-icon"/>https://www.coursera.org/projects/docker-for-absolute-beginners</div></div><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~COURSE!~docker-for-absolute-beginners/XDP~COURSE!~docker-for-absolute-beginners.jpeg" class="bookmark-image"/></a></figure><figure id="2221c931-98d4-81a4-9b20-da85477f90d1"><a href="https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.3490000&amp;type=2&amp;murl=https://www.udemy.com/course/docker-kubernetes-the-practical-guide/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Docker &amp; Kubernetes: The Practical Guide [2023 Edition]</div><div class="bookmark-description">Learn Docker, Docker Compose, Multi-Container Projects, Deployment and all about Kubernetes from the ground up!</div></div><div class="bookmark-href"><img src="https://www.udemy.com/staticx/udemy/images/v7/apple-touch-icon.png" class="icon bookmark-icon"/>https://click.linksynergy.com/link?id=HTtUFxqit0c&amp;offerid=1060092.3490000&amp;type=2&amp;murl=https://www.udemy.com/course/docker-kubernetes-the-practical-guide/</div></div><img src="https://img-c.udemycdn.com/course/480x270/3490000_d298_2.jpg" class="bookmark-image"/></a></figure><p id="2221c931-98d4-81cc-a364-d5630f4c7f01" class="">
+</p><h3 id="2221c931-98d4-8151-bdd2-ebf5833065ef" class=""><strong>Real-World Case Studies</strong></h3><figure id="2221c931-98d4-81f6-af89-db68a8e141fe"><a href="https://netflixtechblog.medium.com/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Netflix Technology Blog – Medium</div><div class="bookmark-description">Read writing from Netflix Technology Blog on Medium. Learn more about how Netflix designs, builds, and operates our systems and engineering organizations.</div></div><div class="bookmark-href"><img src="https://miro.medium.com/v2/resize:fill:152:152/1*sHhtYhaCe2Uc3IU0IgKwIQ.png" class="icon bookmark-icon"/>https://netflixtechblog.medium.com/</div></div><img src="https://miro.medium.com/v2/resize:fit:2400/1*BJWRqfSMf9Da9vsXG9EBRQ.jpeg" class="bookmark-image"/></a></figure><figure id="2221c931-98d4-81de-912f-df88c6c65421"><a href="https://aws.amazon.com/solutions/case-studies/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Customer Success Stories: Case Studies, Videos, Podcasts, Innovator stories</div><div class="bookmark-description">Learn how organizations of all sizes use AWS to increase agility, lower costs, and accelerate innovation in the cloud.</div></div><div class="bookmark-href"><img src="https://a0.awsstatic.com/libra-css/images/site/touch-icon-ipad-144-smile.png" class="icon bookmark-icon"/>https://aws.amazon.com/solutions/case-studies/</div></div><img src="https://i.ytimg.com/vi/YFBM950_lx4/maxresdefault.jpg" class="bookmark-image"/></a></figure><figure id="2221c931-98d4-819a-8742-de8b7de9d6a7"><a href="https://cloud.google.com/customers" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Customers  |  Google Cloud</div><div class="bookmark-description">Learn why many of the world’s leading companies are choosing Google Cloud to solve their toughest challenges.</div></div><div class="bookmark-href"><img src="https://www.gstatic.com/devrel-devsite/prod/ved7a80da7b7ebda036cad4a1e1d58c3f8a455fd3236cff9178ee907e8348f62c/cloud/images/favicons/onecloud/super_cloud.png" class="icon bookmark-icon"/>https://cloud.google.com/customers</div></div><img src="https://cloud.google.com/_static/cloud/images/social-icon-google-cloud-1200-630.png" class="bookmark-image"/></a></figure><figure id="2221c931-98d4-8189-8f42-f1324c21736a"><a href="https://azure.microsoft.com/en-us/resources/customer-stories/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Customer and Partner Success Stories | Microsoft Azure</div><div class="bookmark-description">Explore Azure customer success stories and case studies to see how organizations all over the world are optimizing their costs and gaining new capabilities.</div></div><div class="bookmark-href"><img src="https://azure.microsoft.com/favicon.ico?v2" class="icon bookmark-icon"/>https://azure.microsoft.com/en-us/resources/customer-stories/</div></div></a></figure><p id="2221c931-98d4-811e-bc8b-f415432ac9c4" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
